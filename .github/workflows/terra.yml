@@ -1,0 +1,16 @@
+name: terra
+on:
+  push:
+    branches:
+      - main
+jobs: 
+    armDeploy:
+      name: deploy 
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+      
+        - name: Azure Login
+          uses: Azure/login@v1
+          with:
+            creds ${{ secrets.AZURE_CREDENTIALS }}}
